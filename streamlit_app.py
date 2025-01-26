@@ -153,7 +153,7 @@ if check_password():
                 with col1:
                     try:
                         # Total demand comparison
-                        with open(f'figures/total_demand_comparison_{scenario.lower().replace(" ", "_")}.html', 'r', encoding='utf-8') as f:
+                        with open(f'figures_total_demand_comparison_{scenario.lower().replace(" ", "_")}.html', 'r', encoding='utf-8') as f:
                             st.components.v1.html(f.read(), height=500)
                     except FileNotFoundError:
                         st.error(f"Total demand comparison not found for {scenario}")
@@ -161,7 +161,7 @@ if check_password():
                 with col2:
                     try:
                         # Growth rate comparison
-                        with open(f'figures/growth_comparison_{scenario.lower().replace(" ", "_")}.html', 'r', encoding='utf-8') as f:
+                        with open(f'figures_growth_comparison_{scenario.lower().replace(" ", "_")}.html', 'r', encoding='utf-8') as f:
                             st.components.v1.html(f.read(), height=500)
                     except FileNotFoundError:
                         st.error(f"Growth comparison not found for {scenario}")
@@ -178,7 +178,7 @@ if check_password():
             # Display statistics first
             st.subheader(f"{selected_mineral} - Key Statistics")
             try:
-                with open(f'figures/{safe_mineral}_statistics.html', 'r', encoding='utf-8') as f:
+                with open(f'figures_{safe_mineral}_statistics.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=400)
             except FileNotFoundError:
                 st.error(f"Statistics visualization not found for {selected_mineral}")
@@ -189,7 +189,7 @@ if check_password():
             # Display trends
             st.subheader(f"{selected_mineral} - Demand Trends by Scenario")
             try:
-                with open(f'figures/{safe_mineral}_trends.html', 'r', encoding='utf-8') as f:
+                with open(f'figures_{safe_mineral}_trends.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=700)
             except FileNotFoundError:
                 st.error(f"Trends visualization not found for {selected_mineral}")
@@ -204,17 +204,17 @@ if check_password():
                 col1, col2, col3 = st.columns(3)
                 
                 with col1:
-                    st.image(f'figures/{proportion_mineral}_statedpoliciesscenario_proportions.png', 
+                    st.image(f'figures/figures_{proportion_mineral}_statedpoliciesscenario_proportions.png', 
                             caption="Stated Policies Scenario", 
                             use_container_width=True)
                 
                 with col2:
-                    st.image(f'figures/{proportion_mineral}_announcedpledgesscenario_proportions.png', 
+                    st.image(f'figures/figures_{proportion_mineral}_announcedpledgesscenario_proportions.png', 
                             caption="Announced Pledges Scenario", 
                             use_container_width=True)
                 
                 with col3:
-                    st.image(f'figures/{proportion_mineral}_netzeroemissionsby2050scenario_proportions.png', 
+                    st.image(f'figures/figures_{proportion_mineral}_netzeroemissionsby2050scenario_proportions.png', 
                             caption="Net Zero Scenario", 
                             use_container_width=True)
             except FileNotFoundError as e:
@@ -228,7 +228,7 @@ if check_password():
             
             with col1:
                 try:
-                    with open(f'figures/{safe_mineral}_trends.html', 'r', encoding='utf-8') as f:
+                    with open(f'figures_{safe_mineral}_trends.html', 'r', encoding='utf-8') as f:
                         st.download_button(
                             label="Download Trends Analysis",
                             data=f.read(),
@@ -240,7 +240,7 @@ if check_password():
             
             with col2:
                 try:
-                    with open(f'figures/{safe_mineral}_statistics.html', 'r', encoding='utf-8') as f:
+                    with open(f'figures_{safe_mineral}_statistics.html', 'r', encoding='utf-8') as f:
                         st.download_button(
                             label="Download Statistics",
                             data=f.read(),
@@ -271,7 +271,7 @@ if check_password():
             
             # Display summary statistics table first
             try:
-                with open(f'figure_2/summary_statistics_{activity}.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_summary_statistics_{activity}.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=400, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Summary statistics not found for {activity}")
@@ -281,7 +281,7 @@ if check_password():
             # Display country dominance 2023
             st.subheader("Country Distribution 2023")
             try:
-                with open(f'figure_2/country_dominance_{activity}_2023.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_country_dominance_{activity}_2023.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800, scrolling=True)
             except FileNotFoundError:
                 st.error(f"2023 dominance visualization not found for {activity}")
@@ -291,7 +291,7 @@ if check_password():
             # Display country dominance 2040
             st.subheader("Country Distribution 2040")
             try:
-                with open(f'figure_2/country_dominance_{activity}_2040.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_country_dominance_{activity}_2040.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800, scrolling=True)
             except FileNotFoundError:
                 st.error(f"2040 dominance visualization not found for {activity}")
@@ -305,7 +305,7 @@ if check_password():
             
             # Mining statistics
             try:
-                with open(f'figure_2/{safe_mineral}_mining_statistics.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_mining_statistics.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Mining statistics not found for {selected_mineral}")
@@ -314,7 +314,7 @@ if check_password():
             
             # Refining statistics
             try:
-                with open(f'figure_2/{safe_mineral}_refining_statistics.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_refining_statistics.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Refining statistics not found for {selected_mineral}")
@@ -324,7 +324,7 @@ if check_password():
             # Display mining trend
             st.subheader("Mining Production Trend")
             try:
-                with open(f'figure_2/{safe_mineral}_mining_trend.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_mining_trend.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Mining trend visualization not found for {selected_mineral}")
@@ -334,7 +334,7 @@ if check_password():
             # Display refining trend
             st.subheader("Refining Production Trend")
             try:
-                with open(f'figure_2/{safe_mineral}_refining_trend.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_refining_trend.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Refining trend visualization not found for {selected_mineral}")
@@ -401,7 +401,7 @@ if check_password():
         
         # Display statistics table
         try:
-            with open(f'figure_3_2/statistics_{safe_scenario}.html', 'r', encoding='utf-8') as f:
+            with open(f'figure_3_2_statistics_{safe_scenario}.html', 'r', encoding='utf-8') as f:
                 st.components.v1.html(f.read(), height=800, scrolling=True)
         except FileNotFoundError:
             st.error(f"Statistics not found for {selected_scenario}")
@@ -411,7 +411,7 @@ if check_password():
         # Display top metals analysis
         st.subheader("Growing Metals Analysis")
         try:
-            with open(f'figure_3_2/top_growing_metals_{safe_scenario}.html', 'r', encoding='utf-8') as f:
+            with open(f'figure_3_2_top_growing_metals_{safe_scenario}.html', 'r', encoding='utf-8') as f:
                 st.components.v1.html(f.read(), height=700, scrolling=True)
         except FileNotFoundError:
             st.error(f"Growing metals analysis not found for {selected_scenario}")
@@ -420,7 +420,7 @@ if check_password():
 
         st.subheader("Declining Metals Analysis")
         try:
-            with open(f'figure_3_2/top_declining_metals_{safe_scenario}.html', 'r', encoding='utf-8') as f:
+            with open(f'figure_3_2_top_declining_metals_{safe_scenario}.html', 'r', encoding='utf-8') as f:
                 st.components.v1.html(f.read(), height=700, scrolling=True)
         except FileNotFoundError:
             st.error(f"Declining metals analysis not found for {selected_scenario}")
@@ -448,7 +448,7 @@ if check_password():
         
         # Display statistics table
         try:
-            with open(f'figure_4_1/{safe_tech}_statistics_table.html', 'r', encoding='utf-8') as f:
+            with open(f'figure_4_1_{safe_tech}_statistics_table.html', 'r', encoding='utf-8') as f:
                 st.components.v1.html(f.read(), height=600, scrolling=True)
         except FileNotFoundError:
             st.error(f"Statistics not found for {selected_tech}")
@@ -457,7 +457,7 @@ if check_password():
         
         # Display key findings
         try:
-            with open(f'figure_4_1/{safe_tech}_key_findings.html', 'r', encoding='utf-8') as f:
+            with open(f'figure_4_1_{safe_tech}_key_findings.html', 'r', encoding='utf-8') as f:
                 st.components.v1.html(f.read(), height=400, scrolling=True)
         except FileNotFoundError:
             st.error(f"Key findings not found for {selected_tech}")
@@ -466,7 +466,7 @@ if check_password():
         
         # Display aggregate trends
         try:
-            with open(f'figure_4_1/{safe_tech}_aggregate_trends.html', 'r', encoding='utf-8') as f:
+            with open(f'figure_4_1_{safe_tech}_aggregate_trends.html', 'r', encoding='utf-8') as f:
                 st.components.v1.html(f.read(), height=800, scrolling=True)
         except FileNotFoundError:
             st.error(f"Aggregate trends not found for {selected_tech}")
@@ -475,7 +475,7 @@ if check_password():
         
         # Display 2050 comparison heatmap
         try:
-            with open(f'figure_4_1/{safe_tech}_2050_comparison.html', 'r', encoding='utf-8') as f:
+            with open(f'figure_4_1_{safe_tech}_2050_comparison.html', 'r', encoding='utf-8') as f:
                 st.components.v1.html(f.read(), height=600, scrolling=True)
         except FileNotFoundError:
             st.error(f"2050 comparison not found for {selected_tech}")
@@ -484,7 +484,7 @@ if check_password():
         
         # Display growth rates
         try:
-            with open(f'figure_4_1/{safe_tech}_growth_rates.html', 'r', encoding='utf-8') as f:
+            with open(f'figure_4_1_{safe_tech}_growth_rates.html', 'r', encoding='utf-8') as f:
                 st.components.v1.html(f.read(), height=600, scrolling=True)
         except FileNotFoundError:
             st.error(f"Growth rates not found for {selected_tech}")
@@ -510,7 +510,7 @@ if check_password():
             # Display supply constraint impact heatmap
             st.subheader("Supply Constraint Impact Analysis")
             try:
-                with open('figure_4_2/supply_constraint_impact.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_2_supply_constraint_impact.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800)
             except FileNotFoundError:
                 st.error("Supply constraint impact visualization not found")
@@ -520,7 +520,7 @@ if check_password():
             # Display growth rates
             st.subheader("Growth Rate Analysis")
             try:
-                with open('figure_4_2/growth_rates.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_2_growth_rates.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error("Growth rates visualization not found")
@@ -533,7 +533,7 @@ if check_password():
             with col1:
                 st.subheader("Base Case Statistics")
                 try:
-                    with open('figure_4_2/statistics_base_case.html', 'r', encoding='utf-8') as f:
+                    with open(f'figure_4_2_statistics_base_case.html', 'r', encoding='utf-8') as f:
                         st.components.v1.html(f.read(), height=800)
                 except FileNotFoundError:
                     st.error("Base case statistics not found")
@@ -541,7 +541,7 @@ if check_password():
             with col2:
                 st.subheader("Constrained Case Statistics")
                 try:
-                    with open('figure_4_2/statistics_constrained.html', 'r', encoding='utf-8') as f:
+                    with open(f'figure_4_2_statistics_constrained.html', 'r', encoding='utf-8') as f:
                         st.components.v1.html(f.read(), height=800)
                 except FileNotFoundError:
                     st.error("Constrained case statistics not found")
@@ -553,7 +553,7 @@ if check_password():
             # Display base case trends
             st.subheader(f"{selected_material} - Base Case Scenarios")
             try:
-                with open(f'figure_4_2/{safe_material}_base_case_trends.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_2_base_case_trends.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error(f"Base case trends not found for {selected_material}")
@@ -563,7 +563,7 @@ if check_password():
             # Display constrained case trends
             st.subheader(f"{selected_material} - Constrained Supply Scenarios")
             try:
-                with open(f'figure_4_2/{safe_material}_constrained_case_trends.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_2_constrained_case_trends.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error(f"Constrained case trends not found for {selected_material}")
@@ -576,7 +576,7 @@ if check_password():
             
             with col1:
                 try:
-                    with open(f'figure_4_2/{safe_material}_base_case_trends.html', 'r', encoding='utf-8') as f:
+                    with open(f'figure_4_2_base_case_trends.html', 'r', encoding='utf-8') as f:
                         st.download_button(
                             label="Download Base Case Analysis",
                             data=f.read(),
@@ -588,7 +588,7 @@ if check_password():
             
             with col2:
                 try:
-                    with open(f'figure_4_2/{safe_material}_constrained_case_trends.html', 'r', encoding='utf-8') as f:
+                    with open(f'figure_4_2_constrained_case_trends.html', 'r', encoding='utf-8') as f:
                         st.download_button(
                             label="Download Constrained Case Analysis",
                             data=f.read(),
@@ -618,7 +618,7 @@ if check_password():
             # Display total demand trends
             st.subheader("Total Mineral Demand Trends")
             try:
-                with open('figure_4_4/total_demand_trends.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_4_total_demand_trends.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error("Total demand trends visualization not found")
@@ -628,7 +628,7 @@ if check_password():
             # Display scenario comparison heatmap
             st.subheader("2050 Scenario Comparison")
             try:
-                with open('figure_4_4/scenario_comparison_2050.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_4_scenario_comparison_2050.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800)
             except FileNotFoundError:
                 st.error("Scenario comparison visualization not found")
@@ -638,7 +638,7 @@ if check_password():
             # Display growth rates
             st.subheader("Growth Rate Analysis (2023-2050)")
             try:
-                with open('figure_4_4/growth_rates.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_4_growth_rates.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error("Growth rates visualization not found")
@@ -672,7 +672,7 @@ if check_password():
             # Display individual material trends
             st.subheader(f"{selected_material} Demand Trends")
             try:
-                with open(f'figure_4_4/{safe_material}_trends.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_4_{safe_material}_trends.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error(f"Trends visualization not found for {selected_material}")
@@ -711,7 +711,7 @@ if check_password():
             st.subheader("Download Visualization")
             
             try:
-                with open(f'figure_4_4/{safe_material}_trends.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_4_{safe_material}_trends.html', 'r', encoding='utf-8') as f:
                     st.download_button(
                         label="Download Trends Analysis",
                         data=f.read(),
@@ -738,7 +738,7 @@ if check_password():
             # Display technology comparison
             st.subheader("Technology Comparison Across Scenarios")
             try:
-                with open('figure_4_5/technology_comparison.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_5_technology_comparison.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error("Technology comparison visualization not found")
@@ -748,7 +748,7 @@ if check_password():
             # Display scenario comparison heatmap
             st.subheader("2050 Scenario Comparison")
             try:
-                with open('figure_4_5/scenario_comparison_2050.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_5_scenario_comparison_2050.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error("Scenario comparison visualization not found")
@@ -758,7 +758,7 @@ if check_password():
             # Display growth rates
             st.subheader("Growth Rate Analysis (2023-2050)")
             try:
-                with open('figure_4_5/growth_rates.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_5_growth_rates.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error("Growth rates visualization not found")
@@ -787,15 +787,17 @@ if check_password():
         
         else:
             # Create safe filename version
+            safe_view = selected_view.lower().replace(" ", "_").replace("(", "").replace(")", "")
+            
             if selected_view == 'Base case':
-                filename = 'base_case_trends.html'
+                filename = 'figure_4_5_base_case_trends.html'
             else:
-                filename = 'wider_direct_current_dc_technology_development_trends.html'
+                filename = 'figure_4_5_wider_direct_current_dc_technology_development_trends.html'
             
             # Display individual technology trends
             st.subheader(f"{selected_view} - Copper Demand Trends")
             try:
-                with open(f'figure_4_5/{filename}', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_5_{filename}', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error(f"Trends visualization not found for {selected_view}")
@@ -836,7 +838,7 @@ if check_password():
             st.subheader("Download Visualization")
             
             try:
-                with open(f'figure_4_5/{filename}', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_5_{filename}', 'r', encoding='utf-8') as f:
                     st.download_button(
                         label="Download Trends Analysis",
                         data=f.read(),
@@ -867,7 +869,7 @@ if check_password():
             # Display material comparison
             st.subheader("Material Comparison Across Scenarios")
             try:
-                with open('figure_4_6/material_comparison.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_6_material_comparison.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error("Material comparison visualization not found")
@@ -877,7 +879,7 @@ if check_password():
             # Display scenario comparison heatmap
             st.subheader("2050 Scenario Comparison")
             try:
-                with open('figure_4_6/scenario_comparison_2050.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_6_scenario_comparison_2050.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800)
             except FileNotFoundError:
                 st.error("Scenario comparison visualization not found")
@@ -887,7 +889,7 @@ if check_password():
             # Display growth rates
             st.subheader("Growth Rate Analysis (2023-2050)")
             try:
-                with open('figure_4_6/growth_rates.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_4_6_growth_rates.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error("Growth rates visualization not found")
@@ -917,11 +919,12 @@ if check_password():
         else:
             # Create safe filename version of material name
             safe_material = selected_material.lower().replace(" ", "_").replace("(", "").replace(")", "")
+            filename = f'figure_4_6_{safe_material}_trends.html'
             
             # Display individual material trends
             st.subheader(f"{selected_material} Demand Trends")
             try:
-                with open(f'figure_4_6/{safe_material}_trends.html', 'r', encoding='utf-8') as f:
+                with open(filename, 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600)
             except FileNotFoundError:
                 st.error(f"Trends visualization not found for {selected_material}")
@@ -964,11 +967,11 @@ if check_password():
             st.subheader("Download Visualization")
             
             try:
-                with open(f'figure_4_6/{safe_material}_trends.html', 'r', encoding='utf-8') as f:
+                with open(filename, 'r', encoding='utf-8') as f:
                     st.download_button(
                         label="Download Trends Analysis",
                         data=f.read(),
-                        file_name=f"{safe_material}_trends.html",
+                        file_name=f"figure_4_6_{safe_material}_trends.html",
                         mime="text/html"
                     )
             except FileNotFoundError:
