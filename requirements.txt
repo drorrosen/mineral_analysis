@@ -1,0 +1,19 @@
+streamlit
+pandas
+plotly
+numpy
+Pillow
+openpyxl> # For Excel file support with pandas
+rapidfuzz
+num2words
+pyyaml
+pyotp
+qrcode
+#boto3
+xlwings 
+#bs4
+#reportlab
+#python-docx
+#google-api-python-client
+#google-auth-httplib2
+#google-auth-oauthlib
