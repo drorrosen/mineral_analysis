@@ -3,6 +3,8 @@ pandas
 plotly
 numpy
 Pillow
+matplotlib
+
 openpyxl> # For Excel file support with pandas
 rapidfuzz
 num2words
