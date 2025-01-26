@@ -305,7 +305,7 @@ if check_password():
             
             # Mining statistics
             try:
-                with open(f'figure_2_mining_statistics.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_{safe_mineral}_mining_statistics.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Mining statistics not found for {selected_mineral}")
@@ -314,7 +314,7 @@ if check_password():
             
             # Refining statistics
             try:
-                with open(f'figure_2_refining_statistics.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_{safe_mineral}_refining_statistics.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=600, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Refining statistics not found for {selected_mineral}")
@@ -324,7 +324,7 @@ if check_password():
             # Display mining trend
             st.subheader("Mining Production Trend")
             try:
-                with open(f'figure_2_mining_trend.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_{safe_mineral}_mining_trend.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Mining trend visualization not found for {selected_mineral}")
@@ -334,7 +334,7 @@ if check_password():
             # Display refining trend
             st.subheader("Refining Production Trend")
             try:
-                with open(f'figure_2_refining_trend.html', 'r', encoding='utf-8') as f:
+                with open(f'figure_2_{safe_mineral}_refining_trend.html', 'r', encoding='utf-8') as f:
                     st.components.v1.html(f.read(), height=800, scrolling=True)
             except FileNotFoundError:
                 st.error(f"Refining trend visualization not found for {selected_mineral}")
